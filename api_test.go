@@ -10,8 +10,8 @@ import (
 func TestGetProfile(t *testing.T) {
 	Key := key.LoadKey(testResourcePath + testKey)
 
-	resp := GetProfile("PC", "laughingcabbage", Key.Value)
+	resp := GetProfile("pc", "laughingcabbage", Key.Value)
 	//TODO validate response
-	fmt.Println(resp)
+	fmt.Println(string(resp))
 
 }

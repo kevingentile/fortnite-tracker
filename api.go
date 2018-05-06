@@ -8,7 +8,7 @@ import (
 )
 
 // GetProfile is used to request a profile from fortnite tracker
-func GetProfile(platform, name, APIToken string) interface{} {
+func GetProfile(platform, name, APIToken string) []byte {
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", ProfileRoute+platform+"/"+name, nil)
 	if err != nil {
@@ -17,6 +17,9 @@ func GetProfile(platform, name, APIToken string) interface{} {
 
 	req.Header.Add(headerKeyName, APIToken)
 
+	fmt.Println(req.URL)
+	fmt.Println(req.Header)
+
 	resp, err := client.Do(req)
 	if err != nil {
 		log.Fatal("failed to get profile from server", err)
@@ -24,6 +27,5 @@ func GetProfile(platform, name, APIToken string) interface{} {
 
 	defer resp.Body.Close()
 	body, _ := ioutil.ReadAll(resp.Body)
-	fmt.Println(body)
-	return body
+	return body //TODO process json
 }
