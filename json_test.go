@@ -7,6 +7,22 @@ import (
 	"testing"
 )
 
+func TestLifeTimeKey(t *testing.T) {
+	actual := LifeTimeKey{
+		Key:   "Top 3",
+		Value: "176",
+	}
+	data, err := ioutil.ReadFile(testResourcePath + "lifeTimeKey.json")
+	if err != nil {
+		t.Error(err)
+	}
+	lifeTimeKey := LifeTimeKey{}
+	json.Unmarshal(data, &lifeTimeKey)
+	if !reflect.DeepEqual(lifeTimeKey, actual) {
+		t.Fail()
+	}
+}
+
 func TestRecentMatch(t *testing.T) {
 
 	actual := Match{
@@ -43,3 +59,50 @@ func TestRecentMatch(t *testing.T) {
 	}
 
 }
+
+// actual := LifeTimeStats{
+// 	LifeTimeKey{
+// 		Key:   "Top 3",
+// 		Value: "176",
+// 	},
+// 	LifeTimeKey{
+// 		Key:   "Top 5s",
+// 		Value: "68",
+// 	},
+// 	LifeTimeKey{
+// 		Key:   "Top 6s",
+// 		Value: "218",
+// 	},
+// 	LifeTimeKey{
+// 		Key:   "Top 12s",
+// 		Value: "150",
+// 	},
+// 	LifeTimeKey{
+// 		Key:   "Top 25s",
+// 		Value: "368",
+// 	},
+// 	LifeTimeKey{
+// 		Key:   "Score",
+// 		Value: "486,054",
+// 	},
+// 	LifeTimeKey{
+// 		Key:   "Matches Played",
+// 		Value: "2810",
+// 	},
+// 	LifeTimeKey{
+// 		Key:   "Wins",
+// 		Value: "100",
+// 	},
+// 	LifeTimeKey{
+// 		Key:   "Win%",
+// 		Value: "4%",
+// 	},
+// 	LifeTimeKey{
+// 		Key:   "Kills",
+// 		Value: "3961",
+// 	},
+// 	LifeTimeKey{
+// 		Key:   "K/d",
+// 		Value: "1.46",
+// 	},
+// }
