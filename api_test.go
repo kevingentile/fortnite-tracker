@@ -8,6 +8,7 @@ import (
 )
 
 func TestGetProfile(t *testing.T) {
+	t.Skip()
 	Key := key.LoadKey(testResourcePath + testKey)
 
 	resp := GetProfile("pc", "laughingcabbage", Key.Value)
