@@ -1,0 +1,137 @@
+{
+    "trnRating": {
+      "label": "TRN Rating",
+      "field": "TRNRating",
+      "category": "Rating",
+      "valueInt": 906,
+      "value": "906",
+      "percentile": 67.0,
+      "displayValue": "906"
+    },
+    "score": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top1": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top3": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top5": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top6": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top10": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top12": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top25": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "kd": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "winRatio": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "matches": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "kills": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "kpg": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "scorePerMatch": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    }
+}

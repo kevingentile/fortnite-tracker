@@ -7,6 +7,29 @@ import (
 	"testing"
 )
 
+func TestStat(t *testing.T) {
+	statField := actual := StatField{
+		Label:        "TRN Rating",
+		Field:        "TRNRating",
+		Category:     "Rating",
+		ValueInt:     906,
+		Value:        "906",
+		Percentile:   67,
+		DisplayValue: "906",
+	}
+	actual := Stat{
+		
+	}
+	data, err := ioutil.ReadFile(testResourcePath + "stat.json")
+	if err != nil {
+		t.Error(err)
+	}
+	stat := Stat{}
+	json.Unmarshal(data, &stat)
+	return
+
+}
+
 func TestStatField(t *testing.T) {
 	actual := StatField{
 		Label:        "TRN Rating",
@@ -27,18 +50,6 @@ func TestStatField(t *testing.T) {
 		t.Fail()
 	}
 }
-
-// func TestStat(t *testing.T) {
-// 	data, err := ioutil.ReadFile(testResourcePath + "stat.json")
-// 	if err != nil {
-// 		t.Error(err)
-// 	}
-// 	stat := Stat{}
-// 	json.Unmarshal(data, &stat)
-// 	return
-
-// }
-
 func TestLifeTimeKey(t *testing.T) {
 	actual := LifeTimeKey{
 		Key:   "Top 3",
