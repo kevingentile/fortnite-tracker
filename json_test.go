@@ -8,7 +8,7 @@ import (
 )
 
 func TestStat(t *testing.T) {
-	statField := actual := StatField{
+	statField := StatField{
 		Label:        "TRN Rating",
 		Field:        "TRNRating",
 		Category:     "Rating",
@@ -18,7 +18,21 @@ func TestStat(t *testing.T) {
 		DisplayValue: "906",
 	}
 	actual := Stat{
-		
+		TRNRating:     statField,
+		Score:         statField,
+		Top1:          statField,
+		Top3:          statField,
+		Top5:          statField,
+		Top6:          statField,
+		Top10:         statField,
+		Top12:         statField,
+		Top25:         statField,
+		KD:            statField,
+		WinRatio:      statField,
+		Matches:       statField,
+		Kills:         statField,
+		KPG:           statField,
+		ScorePerMatch: statField,
 	}
 	data, err := ioutil.ReadFile(testResourcePath + "stat.json")
 	if err != nil {
@@ -26,8 +40,9 @@ func TestStat(t *testing.T) {
 	}
 	stat := Stat{}
 	json.Unmarshal(data, &stat)
-	return
-
+	if !reflect.DeepEqual(actual, stat) {
+		t.Fail()
+	}
 }
 
 func TestStatField(t *testing.T) {
