@@ -6,8 +6,7 @@ type StatField struct {
 	Field        string  `json:"field"`
 	Category     string  `json:"category"`
 	ValueInt     int     `json:"valueInt"`
-	Value        float64 `json:"value"`
-	Rank         int     `json:"rank"`
+	Value        string  `json:"value"`
 	Percentile   float64 `json:"percentile"`
 	DisplayValue string  `json:"displayValue"`
 }

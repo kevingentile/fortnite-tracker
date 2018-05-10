@@ -7,6 +7,38 @@ import (
 	"testing"
 )
 
+func TestStatField(t *testing.T) {
+	actual := StatField{
+		Label:        "TRN Rating",
+		Field:        "TRNRating",
+		Category:     "Rating",
+		ValueInt:     906,
+		Value:        "906",
+		Percentile:   67,
+		DisplayValue: "906",
+	}
+	data, err := ioutil.ReadFile(testResourcePath + "statField.json")
+	if err != nil {
+		t.Error(err)
+	}
+	statField := StatField{}
+	json.Unmarshal(data, &statField)
+	if !reflect.DeepEqual(actual, statField) {
+		t.Fail()
+	}
+}
+
+// func TestStat(t *testing.T) {
+// 	data, err := ioutil.ReadFile(testResourcePath + "stat.json")
+// 	if err != nil {
+// 		t.Error(err)
+// 	}
+// 	stat := Stat{}
+// 	json.Unmarshal(data, &stat)
+// 	return
+
+// }
+
 func TestLifeTimeKey(t *testing.T) {
 	actual := LifeTimeKey{
 		Key:   "Top 3",
