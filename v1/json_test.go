@@ -7,26 +7,43 @@ import (
 	"testing"
 )
 
+func TestProfile(t *testing.T) {
+	data, err := ioutil.ReadFile(testResourcePath + "profile.json")
+	if err != nil {
+		t.Error(err)
+	}
+	profile := Profile{}
+	err = json.Unmarshal(data, &profile)
+	if err != nil {
+		t.Error(err)
+	}
+}
+
 func TestStat(t *testing.T) {
 	data, err := ioutil.ReadFile(testResourcePath + "stat.json")
 	if err != nil {
 		t.Error(err)
 	}
 	testStat := Stat{}
-	json.Unmarshal(data, &testStat)
+	err = json.Unmarshal(data, &testStat)
+	if err != nil {
+		t.Error(err)
+	}
 	if !reflect.DeepEqual(testStat, stat) {
 		t.Fail()
 	}
 }
 
 func TestStatField(t *testing.T) {
-
 	data, err := ioutil.ReadFile(testResourcePath + "statField.json")
 	if err != nil {
 		t.Error(err)
 	}
 	testStatField := StatField{}
-	json.Unmarshal(data, &testStatField)
+	err = json.Unmarshal(data, &testStatField)
+	if err != nil {
+		t.Error(err)
+	}
 	if !reflect.DeepEqual(testStatField, statField) {
 		t.Fail()
 	}
@@ -37,7 +54,10 @@ func TestLifeTimeKey(t *testing.T) {
 		t.Error(err)
 	}
 	testLifeTimeKey := LifeTimeKey{}
-	json.Unmarshal(data, &testLifeTimeKey)
+	err = json.Unmarshal(data, &testLifeTimeKey)
+	if err != nil {
+		t.Error(err)
+	}
 	if !reflect.DeepEqual(lifeTimeKey, testLifeTimeKey) {
 		t.Fail()
 	}
@@ -50,12 +70,13 @@ func TestRecentMatch(t *testing.T) {
 	}
 
 	testMatch := Match{}
-	json.Unmarshal(data, &testMatch)
-
+	err = json.Unmarshal(data, &testMatch)
+	if err != nil {
+		t.Error(err)
+	}
 	if !reflect.DeepEqual(testMatch, match) {
 		t.Fail()
 	}
-
 }
 
 var statField = StatField{
