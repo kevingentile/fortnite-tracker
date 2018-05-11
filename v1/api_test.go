@@ -16,7 +16,6 @@ func TestGetProfile(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-
 }
 
 func TestGetWins(t *testing.T) {
@@ -24,7 +23,6 @@ func TestGetWins(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-
 	wins, err := GetWins(profile)
 	if err != nil {
 		t.Error(err)
@@ -40,12 +38,10 @@ func TestGetTop3(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-
 	top3, err := GetTop3s(profile)
 	if err != nil {
 		t.Error(err)
 	}
-
 	if top3 != 127 {
 		t.Fail()
 	}
@@ -61,6 +57,5 @@ func loadProfile() (Profile, error) {
 	if err != nil {
 		return profile, err
 	}
-
 	return profile, nil
 }
