@@ -13,11 +13,14 @@ type StatField struct {
 
 // Profile json
 type Profile struct {
-	AccountID      string        `json:"accountId"`
-	Platform       int           `json:"platformId"`
-	PlatformName   string        `json:"platformNameLong"`
-	EpicUserHandle string        `json:"epicUserHandle"`
-	Stats          PersonalStats `json:"stats"`
+	AccountID        string        `json:"accountId"`
+	PlatformID       int           `json:"platformId"`
+	PlatformName     string        `json:"platformName"`
+	PlatformNameLong string        `json:"platformNameLong"`
+	EpicUserHandle   string        `json:"epicUserHandle"`
+	Stats            PersonalStats `json:"stats"`
+	LifeTimeStats    LifeTimeStats `json:"lifeTimeStats"`
+	RecentMatches    RecentMatches `json:"recentMatches"`
 }
 
 // Stat json
@@ -41,14 +44,15 @@ type Stat struct {
 
 // Personal
 type PersonalStats struct {
-	P2       Stat
-	P10      Stat
-	P9       Stat
-	CurrP10  Stat
-	CurrP9   Stat
-	PriorP2  Stat
-	PriorP10 Stat
-	PriorP9  Stat
+	P2       Stat `json:"p2"`
+	P10      Stat `json:"p10"`
+	P9       Stat `json:"p9"`
+	CurrP2   Stat `json:"curr_p2"`
+	CurrP10  Stat `json:"curr_p10"`
+	CurrP9   Stat `json:"curr_p9"`
+	PriorP2  Stat `json:"prior_p2"`
+	PriorP10 Stat `json:"prior_p10"`
+	PriorP9  Stat `json:"prior_p9"`
 }
 
 // LifeTimeStats holds an array of lifetime stats
