@@ -9,7 +9,7 @@ import (
 )
 
 func TestGetProfile(t *testing.T) {
-	t.Skip()
+	t.SkipNow()
 	Key := key.LoadKey(testResourcePath + testKey)
 
 	_, err := GetProfile("pc", "laughingcabbage", Key.Value)
