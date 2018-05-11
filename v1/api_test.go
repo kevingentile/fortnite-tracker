@@ -16,3 +16,17 @@ func TestGetProfile(t *testing.T) {
 	}
 
 }
+
+func loadProfile() (Profile, error) {
+	profile := Profile{}
+	data, err := ioutil.ReadFile(testResourcePath + "profile.json")
+	if err != nil {
+		return profile, err
+	}
+	err = json.Unmarshal(data, &profile)
+	if err != nil {
+		return profile, err
+	}
+
+	return profile, nil
+}
