@@ -2,7 +2,6 @@ package tracker
 
 import (
 	"encoding/json"
-	"errors"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -47,8 +46,16 @@ func GetWins(profile Profile) (int, error) {
 	return wins, nil
 }
 
+func GetTop3s(profile Profile) (int, error) {
+	top3String, err := lookupLifetimeStat(profile, "Top 3s")
+	if err != nil {
+		return -1, err
 	}
-	return -1, errors.New("Wins not found in profile")
+	top3, err := strconv.Atoi(top3String)
+	if err != nil {
+		return -1, err
+	}
+	return top3, nil
 }
 
 func lookupLifetimeStat(profile Profile, key string) (string, error) {

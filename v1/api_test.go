@@ -32,6 +32,22 @@ func TestGetWins(t *testing.T) {
 
 }
 
+func TestGetTop3(t *testing.T) {
+	profile, err := loadProfile()
+	if err != nil {
+		t.Error(err)
+	}
+
+	top3, err := GetTop3s(profile)
+	if err != nil {
+		t.Error(err)
+	}
+
+	if top3 != 127 {
+		t.Fail()
+	}
+}
+
 func loadProfile() (Profile, error) {
 	profile := Profile{}
 	data, err := ioutil.ReadFile(testResourcePath + "profile.json")
