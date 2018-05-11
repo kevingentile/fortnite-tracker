@@ -1,31 +1,33 @@
 package tracker
 
 import (
-	"fmt"
+	"encoding/json"
 	"io/ioutil"
 	"log"
 	"net/http"
 )
 
 // GetProfile is used to request a profile from fortnite tracker
-func GetProfile(platform, name, APIToken string) []byte {
+func GetProfile(platform, name, APIToken string) (Profile, error) {
+	profile := Profile{}
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", ProfileRoute+platform+"/"+name, nil)
 	if err != nil {
 		log.Fatal("failed to create profile request", err)
+		return profile, err
 	}
-
 	req.Header.Add(headerKeyName, APIToken)
-
-	fmt.Println(req.URL)
-	fmt.Println(req.Header)
-
 	resp, err := client.Do(req)
 	if err != nil {
 		log.Fatal("failed to get profile from server", err)
+		return profile, err
 	}
-
 	defer resp.Body.Close()
 	body, _ := ioutil.ReadAll(resp.Body)
-	return body //TODO process json
+	err = json.Unmarshal(body, &profile)
+	if err != nil {
+		log.Fatal("failed to unmarshal profile json")
+		return profile, err
+	}
+	return profile, nil
 }
