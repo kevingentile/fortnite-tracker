@@ -26,6 +26,9 @@ func TestGetWins(t *testing.T) {
 	}
 
 	wins, err := GetWins(profile)
+	if err != nil {
+		t.Error(err)
+	}
 	if wins != 100 {
 		t.Fail()
 	}
