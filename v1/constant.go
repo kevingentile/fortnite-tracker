@@ -1,6 +1,9 @@
 package tracker
 
-import "time"
+import (
+	"errors"
+	"time"
+)
 
 // TestResourcePath holds the path to test resources
 const testResourcePath = "test-resource/"
@@ -21,3 +24,6 @@ const Version = "v1"
 
 //ProfileRoute contains the core route for requesting profile resources
 const ProfileRoute = "https://api.fortnitetracker.com/v1/profile/"
+
+// ErrNotFound is an error type used when entries are not found
+var ErrNotFound = errors.New("entry not found")

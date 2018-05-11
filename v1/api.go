@@ -44,12 +44,11 @@ func GetWins(profile Profile) (int, error) {
 	return -1, errors.New("Wins not found in profile")
 }
 
-func lookupLifetimeStat(profile Profile, key string) string {
+func lookupLifetimeStat(profile Profile, key string) (string, error) {
 	for _, item := range profile.LifeTimeStats {
 		if item.Key == key {
-			return item.Value
+			return item.Value, nil
 		}
 	}
-
-	return ""
+	return "", ErrNotFound
 }
