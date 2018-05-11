@@ -1,6 +1,8 @@
 package tracker
 
 import (
+	"encoding/json"
+	"io/ioutil"
 	"testing"
 
 	"github.com/LaughingCabbage/tracker-bot/key"
@@ -13,6 +15,19 @@ func TestGetProfile(t *testing.T) {
 	_, err := GetProfile("pc", "laughingcabbage", Key.Value)
 	if err != nil {
 		t.Error(err)
+	}
+
+}
+
+func TestGetWins(t *testing.T) {
+	profile, err := loadProfile()
+	if err != nil {
+		t.Error(err)
+	}
+
+	wins, err := GetWins(profile)
+	if wins != 100 {
+		t.Fail()
 	}
 
 }

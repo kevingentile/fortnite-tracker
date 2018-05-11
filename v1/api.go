@@ -2,9 +2,11 @@ package tracker
 
 import (
 	"encoding/json"
+	"errors"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 // GetProfile is used to request a profile from fortnite tracker
@@ -30,4 +32,13 @@ func GetProfile(platform, name, APIToken string) (Profile, error) {
 		return profile, err
 	}
 	return profile, nil
+}
+
+func GetWins(profile Profile) (int, error) {
+	for _, item := range profile.LifeTimeStats {
+		if item.Key == "Wins" {
+			return strconv.Atoi(item.Value)
+		}
+	}
+	return -1, errors.New("Wins not found in profile")
 }
