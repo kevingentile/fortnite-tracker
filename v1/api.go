@@ -36,10 +36,17 @@ func GetProfile(platform, name, APIToken string) (Profile, error) {
 
 // GetWins returns the number of wins from a users lifetime stats
 func GetWins(profile Profile) (int, error) {
-	for _, item := range profile.LifeTimeStats {
-		if item.Key == "Wins" {
-			return strconv.Atoi(item.Value)
-		}
+	winsString, err := lookupLifetimeStat(profile, "Wins")
+	if err != nil {
+		return -1, err
+	}
+	wins, err := strconv.Atoi(winsString)
+	if err != nil {
+		return -1, err
+	}
+	return wins, nil
+}
+
 	}
 	return -1, errors.New("Wins not found in profile")
 }
