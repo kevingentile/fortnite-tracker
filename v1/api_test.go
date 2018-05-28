@@ -47,6 +47,34 @@ func TestGetTop3(t *testing.T) {
 	}
 }
 
+func TestGetKills(t *testing.T) {
+	profile, err := loadProfile()
+	if err != nil {
+		t.Error(err)
+	}
+	kills, err := GetKills(profile)
+	if err != nil {
+		t.Error(err)
+	}
+	if kills != 3961 {
+		t.Fail()
+	}
+}
+
+func TestGetKDR(t *testing.T) {
+	profile, err := loadProfile()
+	if err != nil {
+		t.Error(err)
+	}
+	kdr, err := GetKDR(profile)
+	if err != nil {
+		t.Error(err)
+	}
+	if kdr != 1.46 {
+		t.Fail()
+	}
+}
+
 func loadProfile() (Profile, error) {
 	profile := Profile{}
 	data, err := ioutil.ReadFile(testResourcePath + "profile.json")

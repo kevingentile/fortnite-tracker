@@ -33,7 +33,7 @@ func GetProfile(platform, name, APIToken string) (Profile, error) {
 	return profile, nil
 }
 
-// GetWins returns the number of wins from a users lifetime stats
+// GetWins returns a profile lifetime wins
 func GetWins(profile Profile) (int, error) {
 	winsString, err := lookupLifetimeStat(profile, "Wins")
 	if err != nil {
@@ -46,6 +46,7 @@ func GetWins(profile Profile) (int, error) {
 	return wins, nil
 }
 
+// GetTop3s returns a profile lifetime top 3 placements
 func GetTop3s(profile Profile) (int, error) {
 	top3String, err := lookupLifetimeStat(profile, "Top 3s")
 	if err != nil {
@@ -56,6 +57,35 @@ func GetTop3s(profile Profile) (int, error) {
 		return -1, err
 	}
 	return top3, nil
+}
+
+// GetKills returns a profile lifetime kills
+func GetKills(profile Profile) (int, error) {
+	killsString, err := lookupLifetimeStat(profile, "Kills")
+	if err != nil {
+		return -1, err
+	}
+
+	kills, err := strconv.Atoi(killsString)
+	if err != nil {
+		return -1, err
+	}
+
+	return kills, nil
+}
+
+// GetKDR returns a profile lifetime kill death ratio
+func GetKDR(profile Profile) (float64, error) {
+	kdrString, err := lookupLifetimeStat(profile, "K/d")
+	if err != nil {
+		return -1, err
+	}
+
+	kdr, err := strconv.ParseFloat(kdrString, 64)
+	if err != nil {
+		return -1, err
+	}
+	return kdr, nil
 }
 
 func lookupLifetimeStat(profile Profile, key string) (string, error) {
