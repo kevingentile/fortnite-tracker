@@ -96,3 +96,12 @@ func lookupLifetimeStat(profile Profile, key string) (string, error) {
 	}
 	return "", ErrNotFound
 }
+
+// GetCurrentKDR returns the kdr for the current season
+func GetCurrentKDR(profile Profile) (float64, error) {
+	stats := profile.Stats
+	kdr := stats.CurrP10.KD.ValueDec +
+		stats.CurrP2.KD.ValueDec +
+		stats.CurrP9.KD.ValueDec
+	return kdr / 3, nil
+}

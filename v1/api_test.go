@@ -75,6 +75,20 @@ func TestGetKDR(t *testing.T) {
 	}
 }
 
+func TestGetCurrentKDR(t *testing.T) {
+	profile, err := loadProfile()
+	if err != nil {
+		t.Error(err)
+	}
+	kdr, err := GetCurrentKDR(profile)
+	if err != nil {
+		t.Error(err)
+	}
+	if kdr != 4.53 {
+		t.Fail()
+	}
+}
+
 func loadProfile() (Profile, error) {
 	profile := Profile{}
 	data, err := ioutil.ReadFile(testResourcePath + "profile.json")
