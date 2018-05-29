@@ -89,6 +89,17 @@ var statField = StatField{
 	DisplayValue: "906",
 }
 
+var floatStatField = FloatStatField{
+	Label:        "Kills Per Match",
+	Field:        "KPG",
+	Category:     "General",
+	ValueDec:     2.82,
+	Value:        "2.82",
+	Rank:         193573,
+	Percentile:   24.0,
+	DisplayValue: "2.82",
+}
+
 var stat = Stat{
 	TRNRating:     statField,
 	Score:         statField,
@@ -99,12 +110,12 @@ var stat = Stat{
 	Top10:         statField,
 	Top12:         statField,
 	Top25:         statField,
-	KD:            statField,
-	WinRatio:      statField,
+	KD:            floatStatField,
+	WinRatio:      floatStatField,
 	Matches:       statField,
 	Kills:         statField,
-	KPG:           statField,
-	ScorePerMatch: statField,
+	KPG:           floatStatField,
+	ScorePerMatch: floatStatField,
 }
 
 var lifeTimeKey = LifeTimeKey{
