@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"log"
+	"math"
 	"net/http"
 	"strconv"
 )
@@ -100,8 +101,9 @@ func lookupLifetimeStat(profile Profile, key string) (string, error) {
 // GetCurrentKDR returns the kdr for the current season
 func GetCurrentKDR(profile Profile) (float64, error) {
 	stats := profile.Stats
-	kdr := stats.CurrP10.KD.ValueDec +
+	kdrAverage := (stats.CurrP10.KD.ValueDec +
 		stats.CurrP2.KD.ValueDec +
-		stats.CurrP9.KD.ValueDec
-	return kdr / 3, nil
+		stats.CurrP9.KD.ValueDec) / 3
+	kdr := math.Round(kdrAverage*100) / 100
+	return kdr, nil
 }
