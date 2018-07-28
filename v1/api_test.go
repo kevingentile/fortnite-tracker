@@ -4,6 +4,7 @@ package tracker
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"testing"
 
@@ -14,10 +15,11 @@ func TestGetProfile(t *testing.T) {
 	t.SkipNow()
 	Key := key.LoadKey(testResourcePath + testKey)
 
-	_, err := GetProfile("pc", "laughingcabbage", Key.Value)
+	profile, err := GetProfile("pc", "laughingcabbage", Key.Value)
 	if err != nil {
 		t.Error(err)
 	}
+	fmt.Println(profile)
 }
 
 func TestGetWins(t *testing.T) {
@@ -86,7 +88,7 @@ func TestGetCurrentKDR(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	if kdr != 4.53 {
+	if kdr != 4.16 {
 		t.Fail()
 	}
 }
