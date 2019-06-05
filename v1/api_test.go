@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/LaughingCabbage/tracker-bot/key"
+	"github.com/kevingentile/tracker-bot/key"
 )
 
 func TestGetProfile(t *testing.T) {
