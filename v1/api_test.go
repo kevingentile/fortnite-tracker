@@ -7,13 +7,25 @@ import (
 	"fmt"
 	"io/ioutil"
 	"testing"
-
-	"github.com/kevingentile/tracker-bot/key"
 )
+
+// Key is your API token
+type Key struct {
+	Value string
+}
+
+//LoadKey is used to load an API token from a file.
+func LoadKey(path string) Key {
+	data, err := ioutil.ReadFile(path)
+	if err != nil {
+		panic(err)
+	}
+	return Key{Value: string(data)}
+}
 
 func TestGetProfile(t *testing.T) {
 	t.SkipNow()
-	Key := key.LoadKey(testResourcePath + testKey)
+	Key := LoadKey(testResourcePath + testKey)
 
 	profile, err := GetProfile("pc", "laughingcabbage", Key.Value)
 	if err != nil {
