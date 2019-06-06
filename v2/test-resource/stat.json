@@ -1,0 +1,141 @@
+{
+    "trnRating": {
+      "label": "TRN Rating",
+      "field": "TRNRating",
+      "category": "Rating",
+      "valueInt": 906,
+      "value": "906",
+      "percentile": 67.0,
+      "displayValue": "906"
+    },
+    "score": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top1": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top3": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top5": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top6": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top10": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top12": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "top25": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "kd": {
+        "label": "Kills Per Match",
+        "field": "KPG",
+        "category": "General",
+        "valueDec": 2.82,
+        "value": "2.82",
+        "rank": 193573,
+        "percentile": 24.0,
+        "displayValue": "2.82"
+    },
+    "winRatio": {
+        "label": "Kills Per Match",
+        "field": "KPG",
+        "category": "General",
+        "valueDec": 2.82,
+        "value": "2.82",
+        "rank": 193573,
+        "percentile": 24.0,
+        "displayValue": "2.82"
+    },
+    "matches": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "kills": {
+        "label": "TRN Rating",
+        "field": "TRNRating",
+        "category": "Rating",
+        "valueInt": 906,
+        "value": "906",
+        "percentile": 67.0,
+        "displayValue": "906"
+    },
+    "kpg": {
+        "label": "Kills Per Match",
+        "field": "KPG",
+        "category": "General",
+        "valueDec": 2.82,
+        "value": "2.82",
+        "rank": 193573,
+        "percentile": 24.0,
+        "displayValue": "2.82"
+    },
+    "scorePerMatch": {
+        "label": "Kills Per Match",
+        "field": "KPG",
+        "category": "General",
+        "valueDec": 2.82,
+        "value": "2.82",
+        "rank": 193573,
+        "percentile": 24.0,
+        "displayValue": "2.82"
+    }
+}
