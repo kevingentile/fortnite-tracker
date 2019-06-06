@@ -1,3 +1,3 @@
-module github.com/kevingentile/fortnite-tracker/v2
+module github.com/kevingentile/fortnite-tracker
 
 go 1.12
