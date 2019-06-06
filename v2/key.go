@@ -8,10 +8,10 @@ type Key struct {
 }
 
 //LoadKey is used to load an API token from a file.
-func LoadKey(path string) Key {
+func LoadKey(path string) *Key {
 	data, err := ioutil.ReadFile(path)
 	if err != nil {
 		panic(err)
 	}
-	return Key{Value: string(data)}
+	return &Key{Value: string(data)}
 }

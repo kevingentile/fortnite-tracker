@@ -10,7 +10,7 @@ func TestLoadKey(t *testing.T) {
 
 	key := LoadKey(testResourcePath + "testkey")
 
-	if key != testKey {
+	if *key != testKey {
 		t.Fail()
 	}
 }
