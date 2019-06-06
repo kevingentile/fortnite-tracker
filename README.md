@@ -1,5 +1,9 @@
 # Fortnite Tracker API
 
+[![CircleCI](https://circleci.com/gh/kevingentile/fortnite-tracker.svg?style=svg)](https://circleci.com/gh/kevingentile/fortnite-tracker)
+[![GoDoc](https://godoc.org/github.com/kevingentile/fortnite-tracker?status.svg)](https://godoc.org/github.com/kevingentile/fortnite-tracker)
+[![Release](https://img.shields.io/github/release/kevingentile/fortnite-tracker.svg?style=flat-square)](https://github.com/kevingentile/fortnite-tracker/releases)
+
 This project allows the user to make requests to the [FortniteTracker API](https://fortnitetracker.com/site-api) with a valid API token.
 
 ### Author: Kevin Gentile
