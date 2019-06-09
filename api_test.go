@@ -1,5 +1,6 @@
-// Copyright 2018 Kevin Gentile.
+// Copyright 2019 Kevin Gentile.
 // Licensed under GNU General Public License v3.0
+
 package tracker
 
 import (
@@ -8,20 +9,6 @@ import (
 	"io/ioutil"
 	"testing"
 )
-
-// Key is your API token
-type Key struct {
-	Value string
-}
-
-//LoadKey is used to load an API token from a file.
-func LoadKey(path string) Key {
-	data, err := ioutil.ReadFile(path)
-	if err != nil {
-		panic(err)
-	}
-	return Key{Value: string(data)}
-}
 
 func TestGetProfile(t *testing.T) {
 	t.SkipNow()
@@ -39,7 +26,7 @@ func TestGetWins(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	wins, err := GetWins(profile)
+	wins, err := profile.GetWins()
 	if err != nil {
 		t.Error(err)
 	}
@@ -54,7 +41,7 @@ func TestGetTop3(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	top3, err := GetTop3s(profile)
+	top3, err := profile.GetTop3s()
 	if err != nil {
 		t.Error(err)
 	}
@@ -68,7 +55,7 @@ func TestGetKills(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	kills, err := GetKills(profile)
+	kills, err := profile.GetKills()
 	if err != nil {
 		t.Error(err)
 	}
@@ -82,7 +69,7 @@ func TestGetKDR(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	kdr, err := GetKDR(profile)
+	kdr, err := profile.GetKDR()
 	if err != nil {
 		t.Error(err)
 	}
@@ -96,7 +83,7 @@ func TestGetCurrentKDR(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	kdr, err := GetCurrentKDR(profile)
+	kdr, err := profile.GetCurrentKDR()
 	if err != nil {
 		t.Error(err)
 	}
@@ -105,8 +92,8 @@ func TestGetCurrentKDR(t *testing.T) {
 	}
 }
 
-func loadProfile() (Profile, error) {
-	profile := Profile{}
+func loadProfile() (*Profile, error) {
+	profile := &Profile{}
 	data, err := ioutil.ReadFile(testResourcePath + "profile.json")
 	if err != nil {
 		return profile, err
