@@ -8,13 +8,18 @@ import (
 	"errors"
 	"io/ioutil"
 	"log"
-	"math"
 	"net/http"
 	"strconv"
 )
 
+//ErrMissingToken returned when the fortnite tracker API token is not set
+var ErrMissingToken = errors.New("Missing API token")
+
 // GetProfile is used to request a profile from fortnite tracker
 func GetProfile(platform, name, APIToken string) (*Profile, error) {
+	if APIToken == "" {
+		return nil, ErrMissingToken
+	}
 	profile := &Profile{}
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", ProfileRoute+platform+"/"+name, nil)
@@ -101,12 +106,12 @@ func (profile *Profile) GetKills() (int, error) {
 func (profile *Profile) GetKDR() (float64, error) {
 	kdrString, err := lookupLifetimeStat(profile, "K/d")
 	if err != nil {
-		return -1, err
+		return -1.0, err
 	}
 
 	kdr, err := strconv.ParseFloat(kdrString, 64)
 	if err != nil {
-		return -1, err
+		return -1.0, err
 	}
 	return kdr, nil
 }
@@ -117,27 +122,28 @@ func lookupLifetimeStat(profile *Profile, key string) (string, error) {
 			return item.Value, nil
 		}
 	}
-	return "", ErrNotFound
+	return "-1.0", ErrNotFound
 }
 
+// DEPRECATED: Innacurate and requires alternate improvment. See GetKDR.
 // GetCurrentKDR returns the kdr for the current season
-func (profile *Profile) GetCurrentKDR() (float64, error) {
-	stats := profile.Stats
+// func (profile *Profile) GetCurrentKDR() (float64, error) {
+// 	stats := profile.Stats
 
-	totalKills := stats.CurrP10.Kills.ValueInt +
-		stats.CurrP2.Kills.ValueInt +
-		stats.CurrP9.Kills.ValueInt
+// 	totalKills := stats.CurrP10.Kills.ValueInt +
+// 		stats.CurrP2.Kills.ValueInt +
+// 		stats.CurrP9.Kills.ValueInt
 
-	totalMatches := stats.CurrP10.Matches.ValueInt +
-		stats.CurrP2.Matches.ValueInt +
-		stats.CurrP9.Matches.ValueInt
+// 	totalMatches := stats.CurrP10.Matches.ValueInt +
+// 		stats.CurrP2.Matches.ValueInt +
+// 		stats.CurrP9.Matches.ValueInt
 
-	totalWins := stats.CurrP10.Top1.ValueInt +
-		stats.CurrP2.Top1.ValueInt +
-		stats.CurrP9.Top1.ValueInt
+// 	totalWins := stats.CurrP10.Top1.ValueInt +
+// 		stats.CurrP2.Top1.ValueInt +
+// 		stats.CurrP9.Top1.ValueInt
 
-	kdrAverage := float64(totalKills) / float64(totalMatches-totalWins)
+// 	kdrAverage := float64(totalKills) / float64(totalMatches-totalWins)
 
-	kdr := math.Round(kdrAverage*100) / 100
-	return kdr, nil
-}
+// 	kdr := math.Round(kdrAverage*100) / 100
+// 	return kdr, nil
+// }

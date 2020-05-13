@@ -78,19 +78,35 @@ func TestGetKDR(t *testing.T) {
 	}
 }
 
-func TestGetCurrentKDR(t *testing.T) {
+func TestLookupLifetimeStat(t *testing.T) {
 	profile, err := loadProfile()
 	if err != nil {
 		t.Error(err)
 	}
-	kdr, err := profile.GetCurrentKDR()
+
+	statStr, err := lookupLifetimeStat(profile, "K/d")
 	if err != nil {
 		t.Error(err)
 	}
-	if kdr != 4.16 {
+
+	if statStr != "1.46" {
 		t.Fail()
 	}
 }
+
+// func TestGetCurrentKDR(t *testing.T) {
+// 	profile, err := loadProfile()
+// 	if err != nil {
+// 		t.Error(err)
+// 	}
+// 	kdr, err := profile.GetCurrentKDR()
+// 	if err != nil {
+// 		t.Error(err)
+// 	}
+// 	if kdr != 4.16 {
+// 		t.Fail()
+// 	}
+// }
 
 func loadProfile() (*Profile, error) {
 	profile := &Profile{}
