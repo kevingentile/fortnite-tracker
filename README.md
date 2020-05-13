@@ -48,7 +48,7 @@ go get github.com/kevingentile/fortnite-tracker
 	}
 	data.Wins = wins
 
-	kdr, err := profile.GetCurrentKDR()
+	kdr, err := profile.GetKDR()
 	if err != nil {
 		handleError(err, w)
 		return
