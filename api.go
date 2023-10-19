@@ -12,7 +12,7 @@ import (
 	"strconv"
 )
 
-//ErrMissingToken returned when the fortnite tracker API token is not set
+// ErrMissingToken returned when the fortnite tracker API token is not set
 var ErrMissingToken = errors.New("Missing API token")
 
 // GetProfile is used to request a profile from fortnite tracker
@@ -29,7 +29,7 @@ func GetProfile(platform, name, APIToken string) (*Profile, error) {
 	}
 	req.Header.Add(headerKeyName, APIToken)
 	resp, err := client.Do(req)
-	if err != nil {
+	if err != nil || resp.StatusCode != http.StatusOK {
 		log.Println("failed to get profile from server", err)
 		return profile, err
 	}
