@@ -1,3 +1,6 @@
+# Deprecated
+This project is no longer maintained. The stats service at [https://fortnitetracker.com/](https://fortnitetracker.com/) that backs this project has reached a (silent) end-of-life.
+
 # Fortnite Tracker API
 
 [![CircleCI](https://circleci.com/gh/kevingentile/fortnite-tracker.svg?style=svg)](https://circleci.com/gh/kevingentile/fortnite-tracker)
